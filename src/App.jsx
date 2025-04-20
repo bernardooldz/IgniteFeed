@@ -7,7 +7,7 @@ import './global.css';
 
 function App() {
   return (
-    <>
+    <div>
       <Header />
 
       <div className={styles.wrapper}>
@@ -17,7 +17,7 @@ function App() {
           <Post auth='Bernardo Diniz' content='Texto de teste' />
         </main>
       </div>
-    </>
+    </div>
   )
 }
 

@@ -1,16 +1,17 @@
 import { ThumbsUp, Trash } from 'phosphor-react'
 import styles from './Comment.module.css'
+import { Avatar } from './Avatar'
 
 export function Comment() {
   return (
     <div className={styles.comment}>
-      <img src="https://github.com/bernardooldz.png" alt="" />
+      <Avatar hasBorder={false} src="https://github.com/bernardooldz.png" alt="" />
 
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
           <header>
             <div className={styles.authorAndTime}>
-              <strong></strong>
+              <strong>Bernardo Diniz</strong>
               <time title='19 de Abril as 14:10' dateTime="2025-04-19">Cerca de 1h atrás</time>
             </div>
 
