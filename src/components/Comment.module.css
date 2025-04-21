@@ -75,13 +75,39 @@
 
 .commentBox footer button:hover {
     color: var(--green-300);
+
+    .likeOff {
+        color: var(--green-300);
+    }
 }
 
 .commentBox footer button svg {
     margin-right: 0.5rem;
 }
 
-.commentBox footer button span::before {
+.likeOn {
+    color: var(--green-300);
+}
+
+.likeOff {
+    color: var(--gray-400);
+}
+
+.likedText {
+    color: var(--green-300);
+}
+
+.specialSpan::before {
     padding: 0 0.25rem;
     content: "\2022";
+}
+
+.specialSpanOn::before {
+    color: var(--green-300);
+    padding: 0 0.25rem;
+    content: "\2022";
+}
+
+.specialSpanOn {
+    color: var(--green-300);
 }

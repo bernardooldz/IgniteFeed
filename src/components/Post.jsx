@@ -7,12 +7,51 @@ import { Comment } from './Comment'
 
 import styles from './Post.module.css'
 
+import { ThumbsDown, ThumbsUp, Trash } from 'phosphor-react'
+
 export function Post({ author, publishedAt, content }) {
     const [comments, setComments] = useState([
         'Post muito bacana, hein!'
     ])
 
     const [newCommentText, setNewCommentText] = useState('')
+
+    const [likeCount, setLikeCount] = useState(0)
+    const [PostLiked, setPostLiked] = useState(false);
+
+    const [DislikeCount, setDislikeCount] = useState(0)
+    const [PostDisliked, setPostDisliked] = useState(false);
+
+    function handlePostLike() {
+        if (PostLiked) {
+          setLikeCount((state) => state - 1);
+          setPostLiked(false);
+        } else {
+          setLikeCount((state) => state + 1);
+          setPostLiked(true);
+      
+          if (PostDisliked) {
+            setDislikeCount((state) => state - 1);
+            setPostDisliked(false);
+          }
+        }
+      }
+      
+      function handlePostDislike() {
+        if (PostDisliked) {
+          setDislikeCount((state) => state - 1);
+          setPostDisliked(false);
+        } else {
+          setDislikeCount((state) => state + 1);
+          setPostDisliked(true);
+      
+          if (PostLiked) {
+            setLikeCount((state) => state - 1);
+            setPostLiked(false);
+          }
+        }
+      }
+      
 
     const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
         locale: ptBR,
@@ -31,7 +70,7 @@ export function Post({ author, publishedAt, content }) {
         setNewCommentText('')
     }
 
-    function handleNewCommentChange() {        
+    function handleNewCommentChange() {
         event.target.setCustomValidity('')
         setNewCommentText(event.target.value)
     }
@@ -73,6 +112,19 @@ export function Post({ author, publishedAt, content }) {
                     }
                 })}
             </div>
+
+            <footer className={styles.postButtons}>
+                <button className={styles.likeBtn} onClick={handlePostLike}>
+                    <ThumbsUp className={PostLiked ? styles.likeOn : styles.likeOff} />
+                    <span className={PostLiked ? styles.likeOn : styles.likeOff}>{likeCount}</span>
+                </button>
+
+                <button className={styles.dislikeBtn} onClick={handlePostDislike}>
+                    <ThumbsDown className={PostDisliked ? styles.dislikeOn : styles.dislikeOff} />
+                    <span className={PostDisliked ? styles.dislikeOn : styles.dislikeOff}>{DislikeCount}</span>
+                </button>
+            </footer>
+
 
             <form onSubmit={heandleCreateNewComment} className={styles.commentForm}>
                 <strong>Deixe seu feedback</strong>

@@ -4,7 +4,7 @@
     padding: 2.5rem;
 }
 
-.post + .post {
+.post+.post {
     margin-top: 2rem;
 }
 
@@ -18,52 +18,52 @@
     margin-top: 1rem;
 }
 
-.content a{
+.content a {
     text-decoration: none;
     color: var(--green-500);
     font-weight: bold;
 }
 
-.content a:hover{
+.content a:hover {
     color: var(--green-300);
 }
 
-.post > header {
+.post>header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.post header time{
+.post header time {
     font-size: 0.875rem;
     color: var(--gray-400);
 }
 
-.author{
+.author {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-.authorInfo{
+.authorInfo {
     display: flex;
     flex-direction: column;
 }
 
-.authorInfo strong{
+.authorInfo strong {
     display: block;
     color: var(--gray-100);
     line-height: 1.6;
 }
 
-.authorInfo span{
+.authorInfo span {
     display: block;
     font-size: 0.875rem;
     color: var(--gray-400);
     line-height: 1.6;
 }
 
-.commentForm{
+.commentForm {
     width: 100%;
     margin-top: 1.5rem;
     padding: 1rem 0 0;
@@ -73,7 +73,7 @@
     flex-direction: column;
 }
 
-.commentForm strong{
+.commentForm strong {
     color: var(--gray-100);
     line-height: 1.6;
 }
@@ -91,7 +91,7 @@
     border: none;
 }
 
-.commentForm textarea:focus{
+.commentForm textarea:focus {
     outline: 1px solid var(--green-500);
 }
 
@@ -127,6 +127,51 @@
     cursor: not-allowed;
 }
 
-.commentList{
+.commentList {
     margin-top: 2rem;
+}
+
+.postButtons {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    gap: 1.5rem;
+}
+
+.postButtons button {
+    background: transparent;
+    border: 0;
+    color: var(--gray-400);
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 2px;
+}
+
+.postButtons button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.postButtons button svg {
+    margin-right: 0.5rem;
+}
+
+.likeOn {
+    color: var(--green-300);
+}
+
+.dislikeOn {
+    color: var(--red-500);
+}
+
+.likeBtn:hover {
+    color: var(--green-300);
+}
+
+.dislikeBtn:hover {
+    color: var(--red-500);
 }
